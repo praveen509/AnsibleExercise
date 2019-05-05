@@ -1,0 +1,13 @@
+---
+- hosts: redhat
+  become: yes
+  tasks:
+  - name: install apache on redhat server
+    yum:
+      name: httpd
+      state: present
+  - name: start the service apache2    
+    service:
+      name: httpd  
+      state: started
+  # you want uninstall this just make the state as absent

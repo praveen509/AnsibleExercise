@@ -1,0 +1,21 @@
+---
+- hosts: unix
+  become: yes
+  tasks:
+  - apt:
+      name: "{{ packagename }}"
+      state: present
+      update_cache: yes
+    notify: 
+      - restart tomcat7
+  - copy:
+      src: /etc/ansible/play1.yml
+      dest: "{{ destcopy }}"
+    notify: 
+      - restart tomcat7
+  handlers:
+  - name: restart tomcat7
+    service:
+      name: "{{ packagename }}"
+      state: restarted
+

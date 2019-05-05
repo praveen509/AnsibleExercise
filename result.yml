@@ -1,0 +1,10 @@
+---
+- hosts: unix
+  become: yes
+  tasks:
+  - name: execute any basic command
+    command: hostname -f
+    register: result
+  - name: print the result
+    debug:
+      msg: "{{ result }}" 

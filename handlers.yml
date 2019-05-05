@@ -1,0 +1,18 @@
+---
+- hosts: unix
+  become: yes
+  tasks:
+  - name: install tomcat        
+    apt:
+      name: tomcat7
+      state: present
+      notify: restart tomcat service
+    copy:
+      src: /etc/ansible/play1.yml
+      dest: /home/ansible/playcopied1.yml
+      notify: restart tomcat service  
+    handlers:
+    - name: restart tomcat service
+      service:
+        name: tomcat7
+        state: restarted

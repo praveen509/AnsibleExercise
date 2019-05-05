@@ -1,0 +1,60 @@
+---
+- hosts: unix
+  become: yes
+  tasks: 
+  - name: install utilities
+    apt:
+      name: "{{ item }}"
+      state: present
+    with_items: ["git","nano","tree","wget"]
+  
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+~
+-- INSERT --                                                                                                                                                                  0,1           All
+

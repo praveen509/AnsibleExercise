@@ -1,0 +1,5 @@
+---
+- hosts: unix
+  tasks: 
+  - name: ping the nodes
+    ping:

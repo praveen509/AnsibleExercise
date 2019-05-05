@@ -1,0 +1,9 @@
+---
+- hosts: unix
+  become: yes
+  tasks:
+  - name: download jenkins
+    get_url:
+      url: http://mirror.xmission.com/jenkins/war-stable/2.164.2/jenkins.war
+      dest: /home/ansible/
+      

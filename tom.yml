@@ -1,0 +1,17 @@
+---
+- hosts: unix
+  become: yes
+  tasks: 
+  - apt:
+      name: tomcat7
+      state: present
+      notify: restart tomcat7
+  - copy:
+      src: /etc/ansible/play1.yml
+      dest: /home/ansible/platrewww.yml
+      notify: restart tomcat7
+  handlers:
+  - name: restart tomcat7
+    service:
+      name: tomcat7
+      state: restarted

@@ -1,0 +1,19 @@
+---
+- hosts: unix
+  tasks:
+  - name: command
+    command: hostname -f
+    register: result
+    check_mode: no
+  - name: print stdout
+    debug:
+      msg: "{{ result.stdout }}"
+    when: result.stderr == ""
+    check_mode: no
+  - name: error
+    debug:
+      msg: "{{ result.stderr }}"
+    when: result.stderr != ""
+    check_mode: no
+  - debug:
+      msg: "System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}"  

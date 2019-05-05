@@ -1,0 +1,7 @@
+---
+- hosts: unix
+  tasks:
+  vars_prompt:        
+  - name: "some password"
+    prompt: "enter password"
+    private: yes

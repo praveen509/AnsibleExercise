@@ -1,0 +1,9 @@
+---
+- hosts: unix
+  become: yes
+  tasks:
+  - name: copy file
+    copy:
+      src: /etc/ansible/play1.yml
+      dest: /home/ansible/playcopy.yml
+

@@ -1,0 +1,18 @@
+---
+- hosts: unix
+  become: yes
+  tasks:
+  - name: execute any basic linux command
+    command: hostname -f
+    register: cmd_content
+  - name: print command result
+    debug:
+      msg: "{{ cmd_content.stdout }}"
+    when: cmd_content.stderr == ""  # when stderr is empty 
+  - name: print command error if present
+    debug:
+      mas: "{{ cmd_content.stderr }}"
+    when: cmd_content.stderr != "" 
+  - debug:
+    msg: "System {{ inventory_hostname }} has uuid {{ ansible_product_uuid }}"     
+

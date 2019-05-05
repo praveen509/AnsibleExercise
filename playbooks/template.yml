@@ -1,0 +1,7 @@
+---
+- hosts: unix
+  become: yes
+  tasks:
+  - template:
+      src: /etc/ansible/playbooks/basic.j2
+      dest: /home/ansible/basic

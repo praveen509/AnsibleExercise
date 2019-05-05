@@ -1,0 +1,14 @@
+---
+- hosts: redhat
+  become: yes
+  tasks:
+  - name: create user
+    user: 
+      name: praveen
+      state: present
+  - name: create group
+    group:
+      name: system
+      state: present
+  - name: execute command
+    command: echo helloworld    
